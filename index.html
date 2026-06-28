@@ -1209,9 +1209,9 @@
       try{
         await Promise.race([
           Promise.all([
-            faceapi.nets.tinyFaceDetector.loadFromUri(MODEL_URL),
-            faceapi.nets.faceLandmark68Net.loadFromUri(MODEL_URL),
-            faceapi.nets.faceExpressionNet.loadFromUri(MODEL_URL)
+            faceapi.nets.tinyFaceDetector.loadFromUri(MODEL_URL).then(()=>console.log('OK tiny')).catch(e=>{console.error('GAGAL tiny:',e);throw e;}),
+            faceapi.nets.faceLandmark68Net.loadFromUri(MODEL_URL).then(()=>console.log('OK landmark')).catch(e=>{console.error('GAGAL landmark:',e);throw e;}),
+            faceapi.nets.faceExpressionNet.loadFromUri(MODEL_URL).then(()=>console.log('OK expression')).catch(e=>{console.error('GAGAL expression:',e);throw e;})
           ]),
           new Promise((_, reject) => setTimeout(() => reject(new Error('timeout')), 10000))
         ]);
