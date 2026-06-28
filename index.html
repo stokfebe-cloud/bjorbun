@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>nasipadangMAX — AI Mood Scan</title>
   <meta name="theme-color" content="#160909" />
-  <meta name="description" content="AI mood scan warung makan, gratisan yang tetap jalan, dengan kamera, template TikTok, dan WhatsApp funnel." />
+  <meta name="description" content="AI mood scan warung makan dengan kamera, hasil personal, template TikTok, dan WhatsApp funnel." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,7 +29,6 @@
       --line:rgba(255,255,255,.08);
       --shadow:0 20px 46px rgba(0,0,0,.30);
       --radius:24px;
-      --radius-md:18px;
       --wrap:1120px;
     }
 
@@ -85,6 +84,7 @@
       text-transform:uppercase;
       font-size:clamp(1rem,3vw,1.35rem);
     }
+
     .logo span{color:var(--gold2)}
 
     .chip{
@@ -109,6 +109,7 @@
       line-height:1.02;
       text-transform:uppercase;
     }
+
     .title .gold{color:var(--gold2)}
 
     .desc{
@@ -216,9 +217,7 @@
       opacity:0;
     }
 
-    .camera-box.scanning .scan-line{
-      opacity:1;
-    }
+    .camera-box.scanning .scan-line{opacity:1}
 
     .live-chip{
       position:absolute;top:14px;right:14px;z-index:3;
@@ -280,24 +279,26 @@
       font-weight:900;border:0;cursor:pointer;
       transition:transform .2s ease, opacity .2s ease;
     }
+
     .btn:hover{transform:translateY(-1px)}
+
     .btn-primary{
       color:#fff;
       background:linear-gradient(135deg,var(--red2),var(--red));
       box-shadow:0 14px 26px rgba(151,26,32,.22);
     }
+
     .btn-secondary{
       color:var(--text);
       background:rgba(255,255,255,.06);
       border:1px solid rgba(255,255,255,.08);
     }
+
     .btn[disabled]{
       opacity:.45;cursor:not-allowed;transform:none;
     }
 
-    .stack{
-      display:grid;gap:16px;
-    }
+    .stack{display:grid;gap:16px}
 
     .mini-label{
       color:var(--gold2);
@@ -334,12 +335,14 @@
 
     .field{display:grid;gap:8px}
     .field label{font-size:14px;font-weight:800;color:#fff0ea}
+
     .input{
       width:100%;min-height:52px;padding:14px 16px;border-radius:16px;
       background:rgba(255,255,255,.04);
       border:1px solid rgba(255,255,255,.08);
       color:var(--text);outline:none;
     }
+
     .input:focus{
       border-color:rgba(216,80,80,.30);
       box-shadow:0 0 0 4px rgba(216,80,80,.08);
@@ -386,6 +389,7 @@
     }
 
     .temp-side{display:grid;gap:12px}
+
     .temp-box{
       padding:14px;border-radius:16px;
       background:rgba(255,255,255,.04);
@@ -422,6 +426,105 @@
     }
 
     .hidden{display:none!important}
+
+    .download-card{
+      position:fixed;
+      left:-99999px;
+      top:0;
+      width:900px;
+      max-width:900px;
+      padding:28px;
+      border-radius:28px;
+      background:
+        radial-gradient(circle at top right, rgba(207,157,89,.12), transparent 22%),
+        radial-gradient(circle at top left, rgba(216,80,80,.16), transparent 22%),
+        linear-gradient(180deg,#2a1111 0%,#140808 100%);
+      color:#fff7f1;
+      border:1px solid rgba(255,255,255,.08);
+      box-shadow:0 24px 50px rgba(0,0,0,.28);
+      display:grid;
+      gap:18px;
+    }
+
+    .download-top{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:14px;
+    }
+
+    .download-box{
+      padding:16px 18px;
+      border-radius:18px;
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.08);
+    }
+
+    .download-label{
+      color:var(--gold2);
+      font-size:11px;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      font-weight:900;
+      margin-bottom:8px;
+    }
+
+    .download-value{
+      color:#fff8f2;
+      font-size:1rem;
+      line-height:1.7;
+      font-weight:700;
+    }
+
+    .download-photo-wrap{
+      width:100%;
+      height:560px;
+      border-radius:24px;
+      overflow:hidden;
+      background:#0f0505;
+      border:1px solid rgba(255,255,255,.08);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      position:relative;
+    }
+
+    .download-photo-wrap img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      object-position:center;
+      display:block;
+    }
+
+    .download-photo-empty{
+      color:var(--muted);
+      text-align:center;
+      padding:24px;
+      line-height:1.8;
+    }
+
+    .download-message{
+      padding:18px 20px;
+      border-radius:20px;
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.08);
+    }
+
+    .download-message-text{
+      margin:0;
+      color:#fff8f2;
+      font-size:1rem;
+      line-height:1.9;
+    }
+
+    .download-footer{
+      text-align:center;
+      color:rgba(255,255,255,.72);
+      font-size:12px;
+      font-weight:800;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
 
     @keyframes scanMove{
       0%{top:12%;opacity:.2}
@@ -460,8 +563,8 @@
 
           <h1 class="title">SCAN VIBE,<br><span class="gold">PILIH MENU</span></h1>
           <p class="desc">
-            Gratisan tapi tetap jalan. Kalau AI wajah tersedia, sistem pakai analisa ekspresi real.
-            Kalau model belum ada, sistem otomatis pakai mode fallback biar customer tetap bisa lanjut.
+            AI bakal baca ekspresi wajah kamu selama 10 detik, bikin hasil yang lebih personal,
+            lalu milihin menu yang paling cocok buat vibe kamu hari ini.
           </p>
 
           <div class="camera-box" id="cameraBox">
@@ -471,7 +574,7 @@
             <div class="placeholder" id="placeholder">
               <div class="inner">
                 <h3>Scanner siap</h3>
-                <p>Klik mulai scan. Kamera aktif, proses jalan 10 detik, hasil keluar otomatis, lalu customer isi TikTok dan unduh template.</p>
+                <p>Klik mulai scan. Kamera aktif, AI membaca ekspresi, hasil langsung keluar, lalu customer isi TikTok dan unduh template.</p>
               </div>
             </div>
 
@@ -491,7 +594,7 @@
             <div class="status">
               <div class="status-pill">
                 <span class="dot"></span>
-                <span id="statusText">Menyiapkan engine scan...</span>
+                <span id="statusText">Menyiapkan AI...</span>
               </div>
               <div class="countdown" id="countdownText">10s</div>
             </div>
@@ -517,9 +620,9 @@
           <div class="card-inner">
             <div class="mini-label">AI Result</div>
             <div class="mood-pill" id="moodPill">Mood: menunggu scan</div>
-            <h2 class="headline" id="headlineText">Hasil scan akan muncul di sini.</h2>
+            <h2 class="headline" id="headlineText">Hasil AI akan muncul di sini.</h2>
             <p class="copy" id="resultText">
-              Sistem akan membaca vibe wajah atau menjalankan analisa fallback yang tetap terasa personal agar customer tetap punya pengalaman yang utuh.
+              AI akan membaca ekspresi dominan wajah, lalu membuat narasi yang lebih personal dan relevan untuk customer.
             </p>
           </div>
         </div>
@@ -614,6 +717,34 @@
     </div>
   </div>
 
+  <div id="downloadCard" class="download-card hidden">
+    <div class="download-top">
+      <div class="download-box">
+        <div class="download-label">Mood terbaca</div>
+        <div class="download-value" id="downloadMood">Menunggu hasil</div>
+      </div>
+
+      <div class="download-box">
+        <div class="download-label">Menu paling cocok</div>
+        <div class="download-value" id="downloadMenu">Belum ada menu</div>
+      </div>
+    </div>
+
+    <div class="download-photo-wrap">
+      <img id="downloadPhoto" alt="hasil scan customer" class="hidden" />
+      <div class="download-photo-empty" id="downloadPhotoEmpty">
+        Foto hasil scan akan muncul di sini.
+      </div>
+    </div>
+
+    <div class="download-message">
+      <div class="download-label">AI bilang</div>
+      <p class="download-message-text" id="downloadMessage">Hasil AI akan muncul di sini.</p>
+    </div>
+
+    <div class="download-footer">AI Mood Scan • nasipadangMAX</div>
+  </div>
+
   <script>
     const MODEL_URL = './models';
 
@@ -654,19 +785,26 @@
     const templateTiktok = document.getElementById('templateTiktok');
     const templateFooterHandle = document.getElementById('templateFooterHandle');
 
+    const downloadCard = document.getElementById('downloadCard');
+    const downloadMood = document.getElementById('downloadMood');
+    const downloadMenu = document.getElementById('downloadMenu');
+    const downloadPhoto = document.getElementById('downloadPhoto');
+    const downloadPhotoEmpty = document.getElementById('downloadPhotoEmpty');
+    const downloadMessage = document.getElementById('downloadMessage');
+
     const downloadBtn = document.getElementById('downloadBtn');
     const waBtn = document.getElementById('waBtn');
 
     let stream = null;
     let audioCtx = null;
     let soundEnabled = true;
-    let engineMode = 'fallback'; // 'real' or 'fallback'
+    let engineMode = 'fallback';
     let modelsLoaded = false;
     let isScanning = false;
     let lastCaptureDataUrl = null;
     let lastResult = null;
-    let lastDetection = null;
     let scanTimer = null;
+    let lastDynamic = null;
 
     const keys = ['neutral','happy','sad','angry','fearful','disgusted','surprised'];
 
@@ -953,8 +1091,8 @@
     async function initEngine(){
       engineMode = 'fallback';
       engineBadge.textContent = 'Mode: fallback';
-      statusText.textContent = 'Menyiapkan mode gratisan yang wajib jalan...';
-      helperText.textContent = 'Kalau model AI tidak ada, scan tetap lanjut pakai fallback mode.';
+      statusText.textContent = 'Menyiapkan engine scan...';
+      helperText.textContent = 'Kalau model AI belum siap, sistem tetap jalan pakai mode fallback.';
       liveChipText.textContent = 'Standby';
 
       if(!window.faceapi){
@@ -969,7 +1107,7 @@
             faceapi.nets.faceLandmark68Net.loadFromUri(MODEL_URL),
             faceapi.nets.faceExpressionNet.loadFromUri(MODEL_URL)
           ]),
-          new Promise((_, reject) => setTimeout(() => reject(new Error('timeout')), 3500))
+          new Promise((_, reject) => setTimeout(() => reject(new Error('timeout')), 10000))
         ]);
 
         modelsLoaded = true;
@@ -982,7 +1120,7 @@
         engineMode = 'fallback';
         engineBadge.textContent = 'Mode: fallback aktif';
         statusText.textContent = 'Model AI tidak ditemukan, fallback tetap jalan';
-        helperText.textContent = 'Tenang, customer tetap bisa scan, dapat hasil, isi TikTok, unduh template, dan lanjut ke WhatsApp.';
+        helperText.textContent = 'Customer tetap bisa scan, dapat hasil, isi TikTok, unduh template, dan lanjut ke WhatsApp.';
       }
     }
 
@@ -1018,7 +1156,6 @@
           .withFaceLandmarks()
           .withFaceExpressions();
 
-        lastDetection = detection || null;
         drawDetection(detection);
         return detection;
       }catch(err){
@@ -1095,22 +1232,18 @@
       const menuObj = pick(source.menus);
       const reason = pick(menuObj.reasons);
 
-      const headline = pick([
-        `${cap(greeting)}, AI baca ${intro}.`,
-        `${cap(greeting)}, vibe wajah kamu nunjukin ${intro}.`,
-        `${cap(greeting)}, dari ekspresi kamu, AI nangkep ${intro}.`
-      ]);
-
-      const body = pick([
-        `${cap(greeting)}, ${intro}. ${cap(feeling)}. ${cap(future)}. Makanya menu yang paling cocok buat kamu sekarang adalah ${menuObj.name}.`,
-        `${cap(greeting)}, ${intro}. Rasanya ${feeling}. ${cap(future)}. Jadi AI milihin ${menuObj.name} buat nemenin vibe kamu hari ini.`,
-        `${cap(greeting)}, AI ngerasa ${intro}. ${cap(feeling)}. ${cap(future)}. Karena itu ${menuObj.name} jadi pilihan yang paling relate buat kamu.`
-      ]);
-
       return {
         moodLabel: `${result.primary} • ${result.secondary} • ${result.energy}`,
-        headline,
-        body,
+        headline: pick([
+          `${cap(greeting)}, AI baca ${intro}.`,
+          `${cap(greeting)}, vibe wajah kamu nunjukin ${intro}.`,
+          `${cap(greeting)}, dari ekspresi kamu, AI nangkep ${intro}.`
+        ]),
+        body: pick([
+          `${cap(greeting)}, ${intro}. ${cap(feeling)}. ${cap(future)}. Makanya menu yang paling cocok buat kamu sekarang adalah ${menuObj.name}.`,
+          `${cap(greeting)}, ${intro}. Rasanya ${feeling}. ${cap(future)}. Jadi AI milihin ${menuObj.name} buat nemenin vibe kamu hari ini.`,
+          `${cap(greeting)}, AI ngerasa ${intro}. ${cap(feeling)}. ${cap(future)}. Karena itu ${menuObj.name} jadi pilihan yang paling relate buat kamu.`
+        ]),
         menu: menuObj.name,
         reason
       };
@@ -1214,9 +1347,8 @@
 
           lastResult = result;
           lastCaptureDataUrl = captureFrame();
-
-          const dynamic = buildCopy(result, greetingSelect.value || 'yo chat');
-          applyResult(dynamic);
+          lastDynamic = buildCopy(result, greetingSelect.value || 'yo chat');
+          applyResult(lastDynamic);
 
           tiktokCard.classList.remove('hidden');
           isScanning = false;
@@ -1226,40 +1358,49 @@
     }
 
     function buildTemplate(){
-      if(!lastResult){
+      if(!lastResult || !lastDynamic){
         alert('Lakukan scan dulu ya.');
         return;
       }
 
-      const greeting = greetingSelect.value || 'yo chat';
       const handle = normHandle(tiktokInput.value);
-      const dynamic = buildCopy(lastResult, greeting);
 
-      templateMood.textContent = `${cap(greeting)} • ${dynamic.moodLabel}`;
-      templateMessage.textContent = dynamic.body;
-      templateMenu.textContent = dynamic.menu;
-      templateReason.textContent = dynamic.reason;
+      templateMood.textContent = lastDynamic.moodLabel;
+      templateMessage.textContent = lastDynamic.body;
+      templateMenu.textContent = lastDynamic.menu;
+      templateReason.textContent = lastDynamic.reason;
       templateTiktok.textContent = handle;
       templateFooterHandle.textContent = `TikTok: ${handle}`;
+
+      downloadMood.textContent = lastDynamic.moodLabel;
+      downloadMenu.textContent = lastDynamic.menu;
+      downloadMessage.textContent = lastDynamic.body;
 
       if(lastCaptureDataUrl){
         templatePhoto.src = lastCaptureDataUrl;
         templatePhoto.classList.remove('hidden');
         templatePhotoEmpty.classList.add('hidden');
+
+        downloadPhoto.src = lastCaptureDataUrl;
+        downloadPhoto.classList.remove('hidden');
+        downloadPhotoEmpty.classList.add('hidden');
       }
 
       templateCard.classList.remove('hidden');
     }
 
     async function downloadTemplate(){
-      const node = document.getElementById('exportCard');
-      if(!node) return;
+      if(!downloadCard) return;
 
-      const canvasOut = await html2canvas(node, {
+      downloadCard.classList.remove('hidden');
+
+      const canvasOut = await html2canvas(downloadCard, {
         scale: 2,
         backgroundColor: null,
         useCORS: true
       });
+
+      downloadCard.classList.add('hidden');
 
       const link = document.createElement('a');
       link.download = 'nasipadangMAX-template.png';
@@ -1288,8 +1429,8 @@ Saya mau tanya / order menu yang direkomendasikan.`
 
     greetingSelect.addEventListener('change', () => {
       if(lastResult){
-        const dynamic = buildCopy(lastResult, greetingSelect.value || 'yo chat');
-        applyResult(dynamic);
+        lastDynamic = buildCopy(lastResult, greetingSelect.value || 'yo chat');
+        applyResult(lastDynamic);
       }
     });
 
