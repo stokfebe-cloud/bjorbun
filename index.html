@@ -341,6 +341,12 @@
       background:rgba(255,255,255,.04);
       border:1px solid rgba(255,255,255,.08);
       color:var(--text);outline:none;
+      font-family:inherit;
+    }
+
+    textarea.input{
+      min-height:110px;
+      resize:vertical;
     }
 
     .input:focus{
@@ -359,7 +365,7 @@
         linear-gradient(180deg, rgba(54,18,18,.95), rgba(18,8,8,.98));
       border:1px solid rgba(255,255,255,.08);
       display:grid;
-      grid-template-columns:1.18fr .82fr;
+      grid-template-columns:1.05fr .95fr;
       gap:14px;
     }
 
@@ -431,9 +437,9 @@
       position:fixed;
       left:-99999px;
       top:0;
-      width:900px;
-      max-width:900px;
-      padding:28px;
+      width:960px;
+      max-width:960px;
+      padding:26px;
       border-radius:28px;
       background:
         radial-gradient(circle at top right, rgba(207,157,89,.12), transparent 22%),
@@ -446,17 +452,60 @@
       gap:18px;
     }
 
-    .download-top{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:14px;
+    .download-header{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:16px;
     }
 
-    .download-box{
-      padding:16px 18px;
-      border-radius:18px;
+    .download-brand-title{
+      font-family:Orbitron,Inter,sans-serif;
+      font-size:30px;
+      font-weight:900;
+      line-height:1;
+      letter-spacing:.06em;
+      text-transform:uppercase;
+    }
+
+    .download-brand-sub{
+      margin-top:8px;
+      color:rgba(255,255,255,.72);
+      font-size:12px;
+      font-weight:800;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+    }
+
+    .download-mood-badge{
+      padding:10px 14px;
+      border-radius:999px;
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.10);
+      color:#ffe6dd;
+      font-size:13px;
+      font-weight:900;
+      white-space:nowrap;
+    }
+
+    .download-main{
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:16px;
+      align-items:start;
+    }
+
+    .download-photo-card,
+    .download-side-card,
+    .download-message-card{
+      border-radius:22px;
       background:rgba(255,255,255,.05);
       border:1px solid rgba(255,255,255,.08);
+      overflow:hidden;
+    }
+
+    .download-card-pad{
+      padding:16px;
     }
 
     .download-label{
@@ -468,17 +517,10 @@
       margin-bottom:8px;
     }
 
-    .download-value{
-      color:#fff8f2;
-      font-size:1rem;
-      line-height:1.7;
-      font-weight:700;
-    }
-
     .download-photo-wrap{
       width:100%;
       height:560px;
-      border-radius:24px;
+      border-radius:18px;
       overflow:hidden;
       background:#0f0505;
       border:1px solid rgba(255,255,255,.08);
@@ -503,11 +545,44 @@
       line-height:1.8;
     }
 
-    .download-message{
-      padding:18px 20px;
-      border-radius:20px;
-      background:rgba(255,255,255,.05);
-      border:1px solid rgba(255,255,255,.08);
+    .download-photo-caption{
+      margin-top:10px;
+      color:rgba(255,255,255,.72);
+      font-size:12px;
+      font-weight:800;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+    }
+
+    .download-side-stack{
+      display:grid;
+      gap:14px;
+    }
+
+    .download-value{
+      color:#fff8f2;
+      font-size:1rem;
+      line-height:1.7;
+      font-weight:700;
+    }
+
+    .download-ai-text{
+      color:#fff8f2;
+      font-size:.98rem;
+      line-height:1.9;
+      margin:0;
+    }
+
+    .download-message-card{
+      display:grid;
+      gap:8px;
+    }
+
+    .download-message-title{
+      color:#fff3ea;
+      font-size:16px;
+      font-weight:900;
+      margin:0;
     }
 
     .download-message-text{
@@ -574,7 +649,7 @@
             <div class="placeholder" id="placeholder">
               <div class="inner">
                 <h3>Scanner siap</h3>
-                <p>Klik mulai scan. Kamera aktif, AI membaca ekspresi, hasil langsung keluar, lalu customer isi TikTok dan unduh template.</p>
+                <p>Klik mulai scan. Kamera aktif, AI membaca ekspresi, hasil langsung keluar, lalu customer isi pesan hari ini, TikTok, dan unduh template.</p>
               </div>
             </div>
 
@@ -604,7 +679,7 @@
             </div>
 
             <div class="helper" id="helperText">
-              Setelah scan selesai, customer langsung isi akun TikTok lalu template promo otomatis dibikin.
+              Setelah scan selesai, customer isi pesan hari ini dan akun TikTok, lalu template promo otomatis dibikin.
             </div>
           </div>
 
@@ -630,9 +705,9 @@
         <div class="card hidden" id="tiktokCard">
           <div class="card-inner">
             <div class="mini-label">Langkah berikutnya</div>
-            <h3 class="headline" style="margin-bottom:8px">Tulis akun TikTok kamu dulu</h3>
+            <h3 class="headline" style="margin-bottom:8px">Lengkapi dulu sebelum template dibuat</h3>
             <p class="copy" style="margin-bottom:14px">
-              Biar template promonya langsung jadi dan siap diunduh.
+              Tulis pesan hari ini dulu, lalu isi akun TikTok kamu biar hasil templatenya lebih personal.
             </p>
 
             <div class="field">
@@ -644,6 +719,11 @@
                 <option value="sis">sis</option>
                 <option value="sir">sir</option>
               </select>
+            </div>
+
+            <div class="field" style="margin-top:12px">
+              <label for="messageInput">Berikan pesan hari ini</label>
+              <textarea id="messageInput" class="input" placeholder="Contoh: semoga hari ini lebih ringan, lebih cuan, dan semua urusan dimudahkan..."></textarea>
             </div>
 
             <div class="field" style="margin-top:12px">
@@ -677,23 +757,18 @@
                 </div>
 
                 <div class="temp-box">
-                  <div class="temp-k">AI bilang</div>
-                  <div class="temp-v" id="templateMessage">Template akan dibuat setelah langkah TikTok selesai.</div>
-                </div>
-
-                <div class="temp-box">
                   <div class="temp-k">Menu paling cocok</div>
                   <div class="temp-v" id="templateMenu">Belum ada menu</div>
                 </div>
 
                 <div class="temp-box">
-                  <div class="temp-k">Kenapa menu ini</div>
-                  <div class="temp-v" id="templateReason">Alasan menu akan muncul di sini.</div>
+                  <div class="temp-k">AI bilang</div>
+                  <div class="temp-v" id="templateMessage">Template akan dibuat setelah langkah form selesai.</div>
                 </div>
 
                 <div class="temp-box">
-                  <div class="temp-k">TikTok</div>
-                  <div class="temp-v" id="templateTiktok">@usernamekamu</div>
+                  <div class="temp-k" id="templateCustomerLabel">Pesan dari @username</div>
+                  <div class="temp-v" id="templateCustomerMessage">Pesan customer akan muncul di sini.</div>
                 </div>
               </div>
 
@@ -718,28 +793,50 @@
   </div>
 
   <div id="downloadCard" class="download-card hidden">
-    <div class="download-top">
-      <div class="download-box">
-        <div class="download-label">Mood terbaca</div>
-        <div class="download-value" id="downloadMood">Menunggu hasil</div>
+    <div class="download-header">
+      <div>
+        <div class="download-brand-title">nasipadangMAX</div>
+        <div class="download-brand-sub">AI Mood Scan Result</div>
+      </div>
+      <div class="download-mood-badge" id="downloadMoodBadge">Mood: menunggu scan</div>
+    </div>
+
+    <div class="download-main">
+      <div class="download-photo-card">
+        <div class="download-card-pad">
+          <div class="download-label">Frame terakhir</div>
+          <div class="download-photo-wrap">
+            <img id="downloadPhoto" alt="hasil scan customer" class="hidden" />
+            <div class="download-photo-empty" id="downloadPhotoEmpty">
+              Foto hasil scan akan muncul di sini.
+            </div>
+          </div>
+          <div class="download-photo-caption">Foto hasil scan customer</div>
+        </div>
       </div>
 
-      <div class="download-box">
-        <div class="download-label">Menu paling cocok</div>
-        <div class="download-value" id="downloadMenu">Belum ada menu</div>
+      <div class="download-side-stack">
+        <div class="download-side-card">
+          <div class="download-card-pad">
+            <div class="download-label">Menu pilihan</div>
+            <div class="download-value" id="downloadMenu">Belum ada menu</div>
+          </div>
+        </div>
+
+        <div class="download-side-card">
+          <div class="download-card-pad">
+            <div class="download-label">Analisa AI</div>
+            <p class="download-ai-text" id="downloadAiText">Hasil AI akan muncul di sini.</p>
+          </div>
+        </div>
       </div>
     </div>
 
-    <div class="download-photo-wrap">
-      <img id="downloadPhoto" alt="hasil scan customer" class="hidden" />
-      <div class="download-photo-empty" id="downloadPhotoEmpty">
-        Foto hasil scan akan muncul di sini.
+    <div class="download-message-card">
+      <div class="download-card-pad">
+        <div class="download-label" id="downloadMessageLabel">Pesan dari @username</div>
+        <p class="download-message-text" id="downloadCustomerMessage">Pesan customer akan muncul di sini.</p>
       </div>
-    </div>
-
-    <div class="download-message">
-      <div class="download-label">AI bilang</div>
-      <p class="download-message-text" id="downloadMessage">Hasil AI akan muncul di sini.</p>
     </div>
 
     <div class="download-footer">AI Mood Scan • nasipadangMAX</div>
@@ -772,6 +869,7 @@
     const tiktokCard = document.getElementById('tiktokCard');
     const templateCard = document.getElementById('templateCard');
     const greetingSelect = document.getElementById('greetingSelect');
+    const messageInput = document.getElementById('messageInput');
     const tiktokInput = document.getElementById('tiktokInput');
     const generateTemplateBtn = document.getElementById('generateTemplateBtn');
     const skipHandleBtn = document.getElementById('skipHandleBtn');
@@ -781,16 +879,18 @@
     const templateMood = document.getElementById('templateMood');
     const templateMessage = document.getElementById('templateMessage');
     const templateMenu = document.getElementById('templateMenu');
-    const templateReason = document.getElementById('templateReason');
-    const templateTiktok = document.getElementById('templateTiktok');
+    const templateCustomerLabel = document.getElementById('templateCustomerLabel');
+    const templateCustomerMessage = document.getElementById('templateCustomerMessage');
     const templateFooterHandle = document.getElementById('templateFooterHandle');
 
     const downloadCard = document.getElementById('downloadCard');
-    const downloadMood = document.getElementById('downloadMood');
+    const downloadMoodBadge = document.getElementById('downloadMoodBadge');
     const downloadMenu = document.getElementById('downloadMenu');
+    const downloadAiText = document.getElementById('downloadAiText');
     const downloadPhoto = document.getElementById('downloadPhoto');
     const downloadPhotoEmpty = document.getElementById('downloadPhotoEmpty');
-    const downloadMessage = document.getElementById('downloadMessage');
+    const downloadMessageLabel = document.getElementById('downloadMessageLabel');
+    const downloadCustomerMessage = document.getElementById('downloadCustomerMessage');
 
     const downloadBtn = document.getElementById('downloadBtn');
     const waBtn = document.getElementById('waBtn');
@@ -1048,6 +1148,12 @@
       return raw.startsWith('@') ? raw : '@' + raw;
     }
 
+    function normalizeMessage(v){
+      const raw = (v || '').trim();
+      if(!raw) return 'Semoga hari ini lebih hangat, lebih tenang, dan semua urusan dilancarkan.';
+      return raw;
+    }
+
     function createAudio(){
       if(!audioCtx){
         audioCtx = new (window.AudioContext || window.webkitAudioContext)();
@@ -1120,7 +1226,7 @@
         engineMode = 'fallback';
         engineBadge.textContent = 'Mode: fallback aktif';
         statusText.textContent = 'Model AI tidak ditemukan, fallback tetap jalan';
-        helperText.textContent = 'Customer tetap bisa scan, dapat hasil, isi TikTok, unduh template, dan lanjut ke WhatsApp.';
+        helperText.textContent = 'Customer tetap bisa scan, dapat hasil, isi pesan, isi TikTok, unduh template, dan lanjut ke WhatsApp.';
       }
     }
 
@@ -1364,17 +1470,20 @@
       }
 
       const handle = normHandle(tiktokInput.value);
+      const customerMessage = normalizeMessage(messageInput.value);
 
       templateMood.textContent = lastDynamic.moodLabel;
-      templateMessage.textContent = lastDynamic.body;
       templateMenu.textContent = lastDynamic.menu;
-      templateReason.textContent = lastDynamic.reason;
-      templateTiktok.textContent = handle;
+      templateMessage.textContent = lastDynamic.body;
+      templateCustomerLabel.textContent = `Pesan dari ${handle}`;
+      templateCustomerMessage.textContent = customerMessage;
       templateFooterHandle.textContent = `TikTok: ${handle}`;
 
-      downloadMood.textContent = lastDynamic.moodLabel;
+      downloadMoodBadge.textContent = `Mood: ${lastDynamic.moodLabel}`;
       downloadMenu.textContent = lastDynamic.menu;
-      downloadMessage.textContent = lastDynamic.body;
+      downloadAiText.textContent = lastDynamic.body;
+      downloadMessageLabel.textContent = `Pesan dari ${handle}`;
+      downloadCustomerMessage.textContent = customerMessage;
 
       if(lastCaptureDataUrl){
         templatePhoto.src = lastCaptureDataUrl;
@@ -1412,9 +1521,11 @@
 
     function openWA(){
       const handle = normHandle(tiktokInput.value);
+      const customerMessage = normalizeMessage(messageInput.value);
       const msg = encodeURIComponent(
         `Halo, saya sudah coba AI Mood Scan.
 TikTok saya: ${handle}
+Pesan saya hari ini: ${customerMessage}
 Saya mau tanya / order menu yang direkomendasikan.`
       );
       window.open(`https://wa.me/62895337312852?text=${msg}`, '_blank');
@@ -1439,6 +1550,9 @@ Saya mau tanya / order menu yang direkomendasikan.`
     skipHandleBtn.addEventListener('click', () => {
       if(!tiktokInput.value.trim()){
         tiktokInput.value = '@nasipadangMAX';
+      }
+      if(!messageInput.value.trim()){
+        messageInput.value = 'Semoga hari ini lebih ringan, lebih hangat, dan semua urusan dimudahkan.';
       }
       buildTemplate();
     });
